@@ -1,0 +1,206 @@
+{% comment %} 
+{% load static %} 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Students</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid black; /* Add black border to the table */
+        }
+        th, td {
+            padding: 6px 12px; /* Decrease padding for overall size reduction */
+            text-align: left;
+            border: 1px solid black; /* Add black border to all columns and rows */
+        }
+        th {
+            background-color: #FFD700;
+            color: #000;
+            border: 2px solid black;
+            padding: 10px 15px; /* Adjust padding for table header */
+        }
+        
+        tr:nth-child(even) {
+            background-color: #FFFACD; /* Lighter version of #FFD700 for even rows */
+        }
+        .table-heading {
+            text-align: center;
+            margin-bottom: 80px; /* Increase distance between table and Students Registered text */
+            
+        }
+        .table-footer {
+            text-align: center;
+            margin-top: 50px; /* Increase distance between table and button */
+            
+        }
+        .bttn {
+            border: 2px solid #000;
+            background-color: #FFD700;
+            font-size: 20px; /* Increase the font size of buttons */
+            padding: 15px 20px; /* Increase the padding of buttons */
+        }
+        .btn-resume {
+            background-color: #FFF; /* Set button background color to white */
+            color: #000; /* Set button text color */
+            transition: background-color 0.3s; /* Add smooth transition effect */
+            width: 130px; /* Set the width of the button */
+            margin: 3px;
+        }
+        .btn-resume:hover {
+            background-color: #FFD700; /* Set button background color to #FFD700 on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="table-heading">Students Registered</h1> <!-- Updated text and styling -->
+        <table>    
+            <thead>
+                <tr>
+                    <th style="width: 50px;">Sr. No</th> <!-- Adjust the width of Sr. No column -->
+                    <th>Student Name</th>
+                    <th>PRN Number</th>
+                    <th>View profile</th>  <!-- New "Resume" column -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students|dictsort:"stu_fname" %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ student.stu_fname }} {{ student.stu_lname }}</td>
+                    <td>{{ student.prnno }}</td>
+                    <td>
+                        {% if student.stu_fname|add:" "|add:student.stu_lname in resume_info_dict %}
+                            <a href="/view_stu_resume/{{ student.stu_fname }} {{ student.stu_lname }}/" class="btn btn-primary btn-resume">View Profile</a>
+                        {% else %}
+                            <a href="" class="btn btn-primary btn-resume">Profile Not Created</a>  
+                        {% endif %} 
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="table-footer">
+            
+           
+            
+            <div>
+                <a class="bttn btn-danger"  href="/viewstudents/">View Dashboard</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> {% endcomment %}
+
+{% load static %} 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Students</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid black; /* Add black border to the table */
+        }
+        th, td {
+            padding: 6px 12px; /* Decrease padding for overall size reduction */
+            text-align: left;
+            border: 1px solid black; /* Add black border to all columns and rows */
+        }
+        th {
+            background-color: #FFD700;
+            color: #000;
+            border: 2px solid black;
+            padding: 10px 15px; /* Adjust padding for table header */
+        }
+        
+        tr:nth-child(even) {
+            background-color: #FFFACD; /* Lighter version of #FFD700 for even rows */
+        }
+        .table-heading {
+            text-align: center;
+            margin-bottom: 80px; /* Increase distance between table and Students Registered text */
+        }
+        .table-footer {
+            text-align: center;
+            margin-top: 50px; /* Increase distance between table and button */
+        }
+        .bttn {
+            border: 2px solid #000;
+            background-color: #FFD700;
+            font-size: 20px; /* Increase the font size of buttons */
+            padding: 15px 20px; /* Increase the padding of buttons */
+        }
+        .btn-resume {
+            background-color: #FFF; /* Set button background color to white */
+            color: #000; /* Set button text color */
+            transition: background-color 0.3s; /* Add smooth transition effect */
+            width: 130px; /* Set the width of the button */
+            margin: 3px;
+        }
+        .btn-resume:hover {
+            background-color: #FFD700; /* Set button background color to #FFD700 on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="table-heading">Students Registered</h1> <!-- Updated text and styling -->
+        <table>    
+            <thead>
+                <tr>
+                    <th style="width: 50px;">Sr. No</th> <!-- Adjust the width of Sr. No column -->
+                    <th>Student Name</th>
+                    <th>PRN Number</th>
+                    <th>Student profile</th>  <!-- New "Resume" column -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students|dictsort:"stu_fname" %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ student.stu_fname }} {{ student.stu_lname }}</td>
+                    <td>{{ student.prnno }}</td>
+                    <td>
+                        {% if student.stu_fname|add:" "|add:student.stu_lname  in resume_info_dict %}
+                            <a href="/view_stu_resume/{{ student.stu_fname }} {{ student.stu_lname }}/" class="btn btn-primary btn-resume">View Profile</a>
+                        {% else %}
+                            <a href="" class="btn btn-primary btn-resume">Profile Not Created</a>
+                        {% endif %} 
+                    </td>
+                </tr>
+                {% endfor %} 
+            
+            </tbody>
+        </table>
+
+        <div class="table-footer">
+            <div>
+                <a class="bttn btn-danger"  href="/viewstudents/">View Dashboard</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

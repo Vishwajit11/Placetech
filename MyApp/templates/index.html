@@ -1,0 +1,295 @@
+{%load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Resume Builder</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css' %}" >
+    <!-- Icon -->
+    <link rel="stylesheet" href="assets/fonts/line-icons.css">
+    <!-- Owl carousel -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static '/css/owl.theme.css'%}">
+    
+    <!-- Animate -->
+    <link rel="stylesheet" href="{%static 'css/animate.css' %}">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <style>
+      .modal-box{ font-family: 'Poppins', sans-serif; }
+
+           
+      .logo {
+        float: left;
+        margin-left: -195px; 
+        font-size: 1.5em;
+        height: 30px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      } @media(max-width: 768px)  
+      {% comment %} .logo {
+             margin-left: 5px; 
+          }
+        }  {% endcomment %}
+
+      .navbar {
+        background-color: #FFD700 !important; 
+        
+      } 
+
+
+      body {
+        background-color: #ffffff; 
+        
+      }   
+
+
+      .head-title {
+        color: white; /* White text color for the "Resume Builder" heading */
+      }
+      .section-title {
+        color: white; /* White text color for the "Select Templates" section heading */
+      }
+
+
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007BFF; /* Button background color */
+        color: #fff; /* Button text color */
+        text-decoration: none; /* Remove underline from the link */
+        border: none; /* Remove border */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Change cursor on hover */
+      }
+      
+      /* Style for the button on hover (optional) */
+      .button:hover {
+        background-color: #0056b3; /* Change background color on hover */
+      }
+
+
+    </style>
+  </head>
+<body>
+  
+    
+    <!-- Header Area wrapper Starts -->
+    <header id="header-wrap">
+      <!-- Navbar Start -->
+      {% comment %} <nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a href="index.html" class="navbar-brand"><img src="assets/img/logo.png" alt=""></a>       
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="lni-menu"></i>
+          </button> 
+
+          <div class="logo">
+            <!-- Logo Placeholder for Illustration -->
+            <a href="#home"><img width="45px" height="auto" src="static/images/logo.png"></a>
+            
+          </div>
+          <p style="color: black; font-size: 22px; font-weight: bold;">PlaceTech</p>
+
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto w-100 justify-content-end clearfix">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">
+                  Home
+                </a>
+              </li>
+              
+
+              {% if request.session.stu_fname %}
+              <li class="nav-item">
+                  <a class="nav-link">Hello {{ request.session.stu_fname }}</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                  <a class="nav-link" href="/loginb/">Login</a>
+              </li>
+              {% endif %}
+              
+              <li class="nav-item">
+                  <a class="nav-link" href="/logout/">Logout</a>
+              </li>
+ 
+             
+              
+              
+            </ul>
+          </div>
+        </div>
+      </nav> {% endcomment %}
+      <nav class="navbar navbar-expand-md bg-inverse fixed-top" style=" border-bottom: 1px solid #000;"> 
+      
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a href="index.html" class="navbar-brand"><img src="assets/img/logo.png" alt=""></a>       
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="lni-menu"></i>
+          </button> 
+      
+          <div class="logo">
+            <!-- Logo Placeholder for Illustration -->
+            <a href="#home"><img width="45px" height="auto" src="static/images/logo.png"></a>
+          </div>
+          <p style="color: black; font-size: 22px; font-weight: bold;">PlaceTech</p>
+      
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto w-100 justify-content-end clearfix">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">
+                  Home
+                </a>
+              </li>
+      
+              {% if request.session.stu_fname %}
+              <li class="nav-item">
+                  <a class="nav-link">Hello {{ request.session.stu_fname }}</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                  <a class="nav-link" href="/loginb/">Login</a>
+              </li>
+              {% endif %}
+      
+              <li class="nav-item">
+                  <a class="nav-link" href="/logout/">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+      <!-- Navbar End -->
+
+      <!-- Hero Area Start -->
+      <div id="hero-area" class="hero-area-bg">
+        <div class="container">      
+          <div class="row">
+            <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+              <div class="contents">
+                <h2 class="head-title" style="text-align: center; font-size: 60px;">PlaceTech</h2>
+              </div>
+            </div>
+            <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+               <div class="intro-img">
+                <img class="img-fluid" src="{% static 'images/intro-mobile.png'%}" alt="">
+              </div>             
+             </div>
+          </div> 
+        </div> 
+      </div>
+      <!-- Hero Area End -->
+
+    </header>
+  
+{% comment %} 
+  <section id="template" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Create Resume</h2>
+          <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Content goes here -->
+          <div class="card text-center bg-light" style="width: 18rem; margin-top: 0px; margin-left: 0;">
+            <div class="card-header" style="font-size: 20px;">
+              Template 1
+            </div>
+            <img class="card-img-top" style="height: 20rem;" src="{% static 'images/temp1.png' %}" alt="Card image cap">
+            <div class="card-body">
+              <a href="/srt-resume/" class="btn btn-dark">Collage Format Template</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
+   {% endcomment %}
+
+
+
+
+
+
+
+{% comment %} 
+  <section id="template" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Create Resume</h2>
+                <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Content goes here -->
+                <div class="card text-center bg-light" style="width: 18rem; margin-top: 0px; margin-left: 0;">
+                    <div class="card-header" style="font-size: 20px;">
+                        Template 1
+                    </div>
+                    <img class="card-img-top" style="height: 20rem;" src="{% static 'images/temp1.png' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <a href="{% if request.session.stu_fname %}/srt-resume/{% endif %}" class="btn btn-dark {% if not request.session.stu_fname %}disabled{% endif %}">
+                            Collage Format Template
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+ {% endcomment %}
+
+  
+<footer class="page-footer font-small unique-color-dark">
+  
+
+</footer>
+<!-- Footer -->
+  <!-- Footer Section End -->
+
+    <!-- Go to Top Link -->
+    <a href="#" class="back-to-top">
+    	<i class="lni-arrow-up">Up</i>
+    </a>
+    
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="loader" id="loader-1"></div>
+    </div>
+    <!-- End Preloader -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery-min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'js/wow.js'%}"></script>
+    <script src="{% static 'js/jquery.nav.js'%}"></script>
+    <script src="{% static 'js/scrolling-nav.js'%}"></script>
+    <script src="{% static 'js/jquery.easing.min.js'%}"></script>  
+    <script src="{% static 'js/main.js'%}"></script>
+    <script src="{% static 'js/form-validator.min.js'%}"></script>
+    <script src="{% static 'js/contact-form-script.min.js'%}"></script>
+      
+  </body>
+</html> 
+

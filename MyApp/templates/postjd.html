@@ -1,0 +1,195 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style for the create form button and form above the container */
+        #formWrapper {
+            margin-top: 20px;
+        }
+
+        /* Apply black border to the container */
+        .form-container {
+            border: 2px solid black;
+            padding: 20px;
+            width: 60%; /* Increase the width as needed */
+            margin: auto; /* Center the container on the page */
+            margin-top: 20px; /* Add margin for spacing */
+            background-color: #FFD700;/* Pink background color */
+        }
+
+        /* Style for form fields */
+        .form-field {
+            margin-bottom: 10px;
+            width: 30%;
+            box-sizing: border-box;
+        }
+
+        /* Style for side-by-side fields */
+        .form-field.inline {
+            display: inline-block;
+            width: 45%; /* Adjust the width as needed */
+            margin-right: 5%; /* Adjust the margin as needed */
+        }
+
+        /* Style for displaying submitted information */
+        .submitted-info {
+            margin-top: 20px;
+        }
+
+        /* Initially hide the form */
+        #myForm {
+            display: none;
+        }
+
+        /* Horizontal line above new entries in the container */
+        .new-entry {
+            border-top: 2px solid black;
+            margin-top: 20px;
+            padding-top: 10px;
+        }
+
+        /* Style for form fields with white background */
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white; /* White background color */
+            margin-top: 8px;
+            margin-bottom: 10px; /* Adjusted margin */
+            resize: vertical;
+        }
+
+        /* Style for the submit button container */
+        .submit-container {
+            text-align: center;
+        }
+
+        /* Style for the submit button */
+        button {
+            background-color: #4CAF50; /* Green background color */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Style for the submit button on hover */
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>Form with Black Border</title>
+</head>
+<body>
+
+    <!-- Wrapper for the create form button and form above the container -->
+    <div id="formWrapper">
+        <button type="button" onclick="toggleForm()">Post New JD</button>
+        <form id="myForm">
+            <!-- Form fields... -->
+            <div class="form-field inline">
+                <label for="name1">Company Name:</label>
+                <input type="text" id="name1" name="name1">
+            </div>
+            <div class="form-field inline">
+                <label for="name2">Company Description:</label>
+                <input type="text" id="name2" name="name2">
+            </div>
+    
+            <!-- Name3 -->
+            <div class="form-field inline">
+                <label for="name3">Job Tile And Description:</label>
+                <input type="text" id="name3" name="name3">
+            </div>
+    
+            <!-- N4 -->
+            <div class="form-field inline">
+                <label for="n4">Stipend:</label>
+                <input type="text" id="n4" name="n4">
+            </div>
+    
+            <!-- N5 -->
+            <div class="form-field inline">
+                <label for="n5">Selection Process:</label>
+                <input type="text" id="n5" name="n5">
+            </div>
+    
+            <!-- Submit button (you can add more buttons as needed) -->
+            <div class="submit-container">
+                <button type="button" onclick="submitForm()">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Container with form -->
+    <div class="form-container" id="formContainer">
+        <!-- Form with fields -->
+        
+        
+        <!-- Display submitted information -->
+        <div id="submittedInfo" class="submitted-info"></div>
+        
+
+        <!-- Horizontal line above new entries -->
+        <div class="new-entry"></div>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Get form data
+            var name1 = document.getElementById('name1').value;
+            var name2 = document.getElementById('name2').value;
+            var name3 = document.getElementById('name3').value;
+            var n4 = document.getElementById('n4').value;
+            var n5 = document.getElementById('n5').value;
+
+            // Display submitted information
+            var submittedInfo = document.getElementById('submittedInfo');
+            submittedInfo.innerHTML = `
+                <p><strong>Company Name:</strong> ${name1}</p>
+                <p><strong>Company Description:</strong> ${name2}</p>
+                <p><strong>Job Title and Description:</strong> ${name3}</p>
+                <p><strong>Stipend:</strong> ${n4}</p>
+                <p><strong>Selection Process:</strong> ${n5}</p>
+            ` + submittedInfo.innerHTML;
+
+            // Add horizontal line between entries
+            submittedInfo.innerHTML += '<hr>';
+
+            // Clear form fields
+            document.getElementById('myForm').reset();
+
+            // Toggle visibility of form and submitted information
+            toggleForm();
+        }
+
+        function toggleForm() {
+            var form = document.getElementById('myForm');
+            var submittedInfo = document.getElementById('submittedInfo');
+
+            // Toggle visibility
+            if (form.style.display === 'none') {
+                form.style.display = 'block'; 
+            } else {
+                form.style.display = 'none';
+                submittedInfo.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
+

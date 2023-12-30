@@ -1,0 +1,140 @@
+{% comment %} 
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white; /* Updated background color to white */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0; /* Remove default margin to fill the entire viewport */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 45px; /* Rounded corners for the container */
+            overflow: hidden; /* Hide overflow to prevent content from protruding outside */
+            background-color: #F0E68C; /* Updated container color to #F0E68C */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+            height: 300px;
+            width: 50%;
+            border: 2px solid #000;
+        }
+
+        .button {
+            padding: 18px; /* Adjusted padding for a smaller size */
+            text-align: center;
+            text-decoration: none;
+            color: #000; /* Set text color to black */
+            border: none;
+            border-radius: 10px; /* Rounded corners for the buttons */
+            font-size: 24px;
+            width: 160px; /* Decreased width for smaller horizontal size */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Smooth transition */
+            border: 2px solid #000;
+        }
+
+        .button.left {
+            background-color: #FFA500; /* Light Orange */
+            margin-right: 20px; 
+        }
+
+        .button.right {
+            background-color: #FFA500; /* Light Orange */
+        }
+
+        .button.left:hover,
+        .button.right:hover {
+            background-color: #FFFFE0; /* Light Yellow on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/login/" class="btn button left">Students</a>
+        <a href="/logint/" class="btn button right">TPO</a>
+    </div>
+</body>
+</html> {% endcomment %}
+
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add Font Awesome CSS (you may need to include it from your own project) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white; /* Updated background color to white */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0; /* Remove default margin to fill the entire viewport */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 45px; /* Rounded corners for the container */
+            overflow: hidden; /* Hide overflow to prevent content from protruding outside */
+            background-color: #F0E68C; /* Updated container color to #F0E68C */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+            height: 300px;
+            width: 50%;
+            border: 2px solid #000;
+        }
+
+        .button {
+            padding: 10px; /* Adjusted padding for a smaller size */
+            text-align: center;
+            text-decoration: none;
+            color: #000; /* Set text color to black */
+            border: none;
+            border-radius: 10px; /* Rounded corners for the buttons */
+            font-size: 24px;
+            width: 160px; /* Decreased width for smaller horizontal size */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Smooth transition */
+            border: 2px solid #000;
+        }
+
+        .button.left {
+            background-color: #FFA500; /* Light Orange */
+            margin-right: 20px; 
+        }
+
+        .button.right {
+            background-color: #FFA500; /* Light Orange */
+        }
+
+        .button.left:hover,
+        .button.right:hover {
+            background-color: #FFFFE0; /* Light Yellow on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/login/" class="btn button left"><i class="fas fa-user-graduate mr-2"></i>Students</a>
+        <a href="/logint/" class="btn button right"><i class="fas fa-chalkboard-teacher mr-2"></i>TPO</a>
+    </div>
+
+    <!-- Add Font Awesome script (you may need to include it from your own project) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+</body>
+</html>
